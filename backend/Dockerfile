@@ -4,6 +4,9 @@ WORKDIR /app
 
 RUN apk upgrade --no-cache
 
+# Update npm bundled with Node image
+RUN npm install -g npm@latest
+
 COPY package*.json ./
 
 RUN npm ci --omit=dev
